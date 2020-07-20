@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="trip-form">
+        <label for="types">Select Trip Type</label><br>
+        <select name="categories" id="categories">
+            <option value="2">Honey Moon</option>
+            <option value="3">Romantic Getaway</option>
+            <option value="4">Family Vacation</option>
+            <option value="4">Health Retreat</option>
+            <option value="4">Party Lover</option>
+        </select><br><br>
+        <label for="areas">Select Area</label><br>
+        <select name="areas" id="areas">
+            <option value="2">Eastern Europe</option>
+            <option value="3">Western Europe</option>
+            <option value="4">Asia</option>
+            <option value="4">Africa</option>
+            <option value="4">Australia</option>
+            <option value="4">South America</option>
+            <option value="4">North America</option>
+        </select><br><br>
+        <label for="city">City</label><br>
+        <input type="text" name="city" id="city"><br>
+        <label for="country">Country</label><br>
+        <input type="text" name="country" id="country"><br>
+        <label for="attraction">Attractions</label><br>
+        <input type="text" name="attraction[]" id="attraction"><br>
+        <button id="add-attraction">Add another attraction</button><br>
+        <label for="Places to Stay"></label><br>
+        <input type="text" name="place[]" id="place"><br>
+        <button id="add-place">Add another place</button><br>
+        <input type="submit" name="Submit">
+    </form>
+    <script src="./src/index.js"></script>
+</body>
+</html>
