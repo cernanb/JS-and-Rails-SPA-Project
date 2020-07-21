@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
 <body>
+    <div class="container">
+    <div class="row">    
+    <div class="col"></div>
+    <div class="col">    
     <form id="trip-form">
         <label for="types">Select Trip Type</label><br>
-        <select name="categories" id="categories">
+        <select name="categories" id="categories" class="form-control">
             <option value="2">Honey Moon</option>
             <option value="3">Romantic Getaway</option>
             <option value="4">Family Vacation</option>
             <option value="4">Health Retreat</option>
             <option value="4">Party Lover</option>
-        </select><br><br>
+        </select><br>
         <label for="areas">Select Area</label><br>
-        <select name="areas" id="areas">
+        <select name="areas" id="areas" class="form-control">
             <!-- <option value="2">Eastern Europe</option> -->
             <option value="3">Western Europe</option>
             <option value="4">Asia</option>
@@ -24,23 +30,27 @@
             <!-- <option value="4">Australia</option> -->
             <option value="4">South America</option>
             <!-- <option value="4">North America</option> -->
-        </select><br><br>
+        </select><br>
         <label for="city">City</label><br>
-        <input type="text" name="city" id="city"><br>
+        <input type="text" name="city" id="city" class="form-control"><br>
         <label for="country">Country</label><br>
-        <input type="text" name="country" id="country"><br>
+        <input type="text" name="country" id="country" class="form-control"><br>
         <div id="attractions">
             <label for="attraction">Attractions</label><br>
-            <input type="text" name="attraction[]" id="attraction"><br>
+            <input type="text" name="attraction[]" id="attraction" class="form-control"><br>
         </div>
         <button id="add-attraction">Add another attraction</button><br>
         <div id="places">
             <label for="place">Places to stay</label><br>
-            <input type="text" name="place[]" id="place"><br>
+            <input type="text" name="place[]" id="place" class="form-control"><br>
         </div>
         <button id="add-place">Add another place</button><br>
         <input type="submit" name="Submit">
     </form>
+    </div>
+
+    </div>
+    </div>
     <script src="./src/index.js"></script>
     <script src="./src/input_fields.js"></script>
 </body>
