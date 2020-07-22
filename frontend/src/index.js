@@ -19,17 +19,24 @@ const displayTrips = (trips) => {
         tripType.innerHTML = `Trip type: ${trip.type}`
         const tripArea = document.createElement("p")
         tripArea.innerHTML = `Trip area: ${trip.area}`
-        const ul = document.createElement("ul")
+        const ulAttractions = document.createElement("ul")
+        const ulHotels = document.createElement("ul")
 
         trip.attractions.forEach(attraction => {
-            const li = document.createElement("li")
-            li.innerHTML = `${attraction.name}`
-            console.log(li) 
-            ul.appendChild(li)
+            const liAttr = document.createElement("li")
+            liAttr.innerHTML = attraction.name
+            ulAttractions.appendChild(liAttr)
+        })
+
+        trip.hotels.forEach(hotel => {
+            const liHotels = document.createElement("li")
+            liHotels.innerHTML = hotel.name
+            ulHotels.appendChild(liHotels)
         })
         tripContainer.appendChild(tripCity)
         tripContainer.appendChild(tripCounrty)
-        tripContainer.appendChild(ul)
+        tripContainer.appendChild(ulAttractions)
+        tripContainer.appendChild(ulHotels)
         main.appendChild(tripContainer)
     })
 }  
