@@ -1,12 +1,14 @@
 const BASE_URL = "http://localhost:3000"
 const TRIPS_URL = `${BASE_URL}/trips`
 
-fetch(TRIPS_URL)
+const typeId = document.querySelector("#types").value 
+const areaId = document.querySelector("#areas").value 
+
+fetch(TRIPS_URL/`${areaId}`/`${typeId}`)
   .then((res) => res.json())
   .then((trips) => displayTrips(trips))
 
 const displayTrips = (trips) => {
-    
     trips.forEach(trip => {
         const main = document.querySelector("main")
         const tripContainer = document.createElement("div")
@@ -16,9 +18,10 @@ const displayTrips = (trips) => {
         const tripCounrty = document.createElement("p")
         tripCounrty.innerHTML = trip.country
         const tripType = document.createElement("p")
-        tripType.innerHTML = `Trip type: ${trip.type}`
+        console.log(trip.type)
+        tripType.innerHTML = `Trip type: ${trip.type.name}`
         const tripArea = document.createElement("p")
-        tripArea.innerHTML = `Trip area: ${trip.area}`
+        tripArea.innerHTML = `Trip area: ${trip.area.name}`
         const ulAttractions = document.createElement("ul")
         const ulHotels = document.createElement("ul")
 
@@ -35,6 +38,8 @@ const displayTrips = (trips) => {
         })
         tripContainer.appendChild(tripCity)
         tripContainer.appendChild(tripCounrty)
+        tripContainer.appendChild(tripArea)
+        tripContainer.appendChild(tripType)
         tripContainer.appendChild(ulAttractions)
         tripContainer.appendChild(ulHotels)
         main.appendChild(tripContainer)
