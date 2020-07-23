@@ -39,6 +39,7 @@ trip2.attractions.build(name: "Bathtub Gin Cocktail Bar")
 trip2.attractions.build(name: "Electric Room Lounge")
 trip2.attractions.build(name: "Hudson Terrace Night Club")
 
+# fix hotel names!!!!
 trip2.hotels.build(name: "St Christopher's Inn Berlin Mitte")
 trip2.hotels.build(name: "Select Hotel Berlin Checkpoint Charlie")
 trip2.hotels.build(name: "Smart Stay Hotel Berlin City")

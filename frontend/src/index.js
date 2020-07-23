@@ -2,7 +2,7 @@ const BASE_URL = "http://localhost:3000"
 const TRIPS_URL = `${BASE_URL}/trips`
 
 const getTrips = (e) => {
-    event.preventDefault()
+    e.preventDefault()
     const typeId = document.querySelector("#types").value 
     const areaId = document.querySelector("#areas").value 
     fetch(`${TRIPS_URL}/${areaId}/${typeId}`)
@@ -50,4 +50,24 @@ const displayTrips = (trips) => {
     })
 }  
 
+const addTrip = (e) => {
+    const configObject = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({ area_id: e.target.area.value,
+                               type_id: e.target.type.value,
+                               city: e.target.city.value,
+                               country: e.target.country.value,
+                               attractions: e.target.attraction.value,
+                               places: e.target.place.value                                      
+                            })
+    }
+    fetch(TRIPS_URL, configObject)
+    .then((res) => res.json())
+}
+
 const form = document.getElementById("main-form").addEventListener("submit", getTrips)
+const createFrom = document.getElementById("trip-form").addEventListener("submit", addTrip)
