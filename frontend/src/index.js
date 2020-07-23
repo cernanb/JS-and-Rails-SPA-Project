@@ -1,16 +1,20 @@
 const BASE_URL = "http://localhost:3000"
 const TRIPS_URL = `${BASE_URL}/trips`
 
-const typeId = document.querySelector("#types").value 
-const areaId = document.querySelector("#areas").value 
-
-fetch(TRIPS_URL/`${areaId}`/`${typeId}`)
-  .then((res) => res.json())
-  .then((trips) => displayTrips(trips))
+const getTrips = (e) => {
+    event.preventDefault()
+    const typeId = document.querySelector("#types").value 
+    const areaId = document.querySelector("#areas").value 
+    fetch(`${TRIPS_URL}/${areaId}/${typeId}`)
+    // fetch(TRIPS_URL)
+    .then((res) => res.json())
+    .then((trips) => displayTrips(trips))
+}
 
 const displayTrips = (trips) => {
+    const main = document.querySelector("main")
+    main.innerHTML = ""
     trips.forEach(trip => {
-        const main = document.querySelector("main")
         const tripContainer = document.createElement("div")
         tripContainer.className = "trip-container"
         const tripCity = document.createElement("p")
@@ -46,5 +50,4 @@ const displayTrips = (trips) => {
     })
 }  
 
-const form = document.getElementById("main-form")
-form.addEventListener("submit", displayTrips)
+const form = document.getElementById("main-form").addEventListener("submit", getTrips)
