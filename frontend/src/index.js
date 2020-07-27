@@ -12,15 +12,15 @@ const getTrips = (e) => {
 }
 
 const displayTrips = (trips) => {
-    const main = document.querySelector("main")
+    const main = document.querySelector(".main")
     main.innerHTML = ""
     trips.forEach(trip => {
         const tripContainer = document.createElement("div")
         tripContainer.className = "trip-container"
         const tripCity = document.createElement("p")
-        tripCity.innerHTML = trip.city 
+        tripCity.innerHTML = `City: ${trip.city}` 
         const tripCounrty = document.createElement("p")
-        tripCounrty.innerHTML = trip.country
+        tripCounrty.innerHTML = `Country: ${trip.country}`
         const tripType = document.createElement("p")
         console.log(trip.type)
         tripType.innerHTML = `Trip type: ${trip.type.name}`
@@ -51,6 +51,15 @@ const displayTrips = (trips) => {
 }  
 
 const addTrip = (e) => {
+    e.preventDefault()
+    const attractionsElements = document.querySelectorAll(".attraction")
+    let attractionsValues = []
+    attractionsElements.forEach(element => { attractionsValues.push(element.value)})
+
+    const placesElements = document.querySelectorAll(".place")
+    let placesValues = []
+    placesElements.forEach(element => { placesValues.push(element.value)})
+
     const configObject = {
         method: "POST",
         headers: {
@@ -61,12 +70,13 @@ const addTrip = (e) => {
                                type_id: e.target.type.value,
                                city: e.target.city.value,
                                country: e.target.country.value,
-                               attractions: e.target.attraction.value,
-                               places: e.target.place.value                                      
+                               attractions: attractionsValues,
+                               hotels: placesValues                                      
                             })
     }
     fetch(TRIPS_URL, configObject)
     .then((res) => res.json())
+    .then((data) => console.log(data))
 }
 
 const form = document.getElementById("main-form").addEventListener("submit", getTrips)

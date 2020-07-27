@@ -10,22 +10,22 @@
 <body>
     <div class="container">
         <div class="row">    
-            <div class="col">
+            <div class="col first-col">
                 <h1>Welcome to Trip Finder!</h1>
                 <form id="trip-form">
                     <label for="type">Select trip type</label><br>
                     <select name="type" id="type" class="form-control">
-                        <option value="2">Honey Moon</option>
-                        <option value="4">Family Vacation</option>
-                        <option value="4">Health Retreat</option>
-                        <option value="4">Party Lover</option>
+                        <option value="4">Honey Moon</option>
+                        <option value="5">Family Vacation</option>
+                        <option value="6">Health Retreat</option>
+                        <option value="7">Party Lover</option>
                     </select><br>
                     <label for="area">Select area</label><br>
                     <select name="area" id="area" class="form-control">
                         <option value="3">Western Europe</option>
                         <option value="4">Asia</option>
-                        <option value="4">Africa</option>
-                        <option value="4">South America</option>
+                        <option value="5">North America</option>
+                        <option value="6">South America</option>
                     </select><br>
                     <label for="city">City</label><br>
                     <input type="text" name="city" id="city" class="form-control"><br>
@@ -33,14 +33,15 @@
                     <input type="text" name="country" id="country" class="form-control"><br>
                     <div id="attractions">
                         <label for="attraction">Attractions</label><br>
-                        <input type="text" name="attraction[]" id="attraction" class="form-control"><br>
+                        <input type="text" name="attraction" id="attraction" class="form-control attraction"><br>
                     </div>
                     <button id="add-attraction">Add another attraction</button><br>
-                    <div id="places">
-                        <label for="place">Hotels</label><br>
-                        <input type="text" name="place[]" id="place" class="form-control"><br>
+                    <div id="hotels">
+                        <label for="hotel">Hotels</label><br>
+                        <input type="text" name="hotel" id="hotel" class="form-control hotel"><br>
                     </div>
-                    <button id="add-place">Add another hotel</button><br>
+                    <button id="add-hotel">Add another hotel</button><br>
+                    
                     <button type="submit" class="btn btn-primary" id="create-trip">Create Trip</button>
                 </form>
             </div>
@@ -64,8 +65,8 @@
                     <button type="submit" class="btn btn-primary" id="find-trip">Find Trip</button>
                 </form>
 
-                <main></main>
-    </div>
+                <div class="container main"></div>
+            </div>
 
     </div>
     </div>

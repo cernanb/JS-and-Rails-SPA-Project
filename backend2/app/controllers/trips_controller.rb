@@ -10,8 +10,18 @@ class TripsController < ApplicationController
     end 
 
     def create 
-        binding.pry
-        # area = Area.find(params[:area_id])
-        # type = Type.find(params[:type_id])
+        area = Area.find_by(id: params[:area_id])
+        type = Type.find_by(id: params[:type_id])
+        trip = Trip.new(city: params[:city], country: params[:country])
+        params[:attractions].each do |attr|
+            trip.attractions.build(name: attr)
+        end
+        params[:places].each do |place|
+            trip.hotels.build(name: place)
+        end
+        trip.area = area  
+        trip.type = type 
+        trip.save 
+        render json: trip.to_json(include: [:attractions, :hotels, :type, :area])
     end
 end
