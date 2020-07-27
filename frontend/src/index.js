@@ -56,9 +56,9 @@ const addTrip = (e) => {
     let attractionsValues = []
     attractionsElements.forEach(element => { attractionsValues.push(element.value)})
 
-    const placesElements = document.querySelectorAll(".place")
-    let placesValues = []
-    placesElements.forEach(element => { placesValues.push(element.value)})
+    const hotelsElements = document.querySelectorAll(".hotel")
+    let hotelsValues = []
+    hotelsElements.forEach(element => { hotelsValues.push(element.value)})
 
     const configObject = {
         method: "POST",
@@ -71,7 +71,7 @@ const addTrip = (e) => {
                                city: e.target.city.value,
                                country: e.target.country.value,
                                attractions: attractionsValues,
-                               hotels: placesValues                                      
+                               hotels: hotelsValues                                      
                             })
     }
     fetch(TRIPS_URL, configObject)

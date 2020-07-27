@@ -16,8 +16,8 @@ class TripsController < ApplicationController
         params[:attractions].each do |attr|
             trip.attractions.build(name: attr)
         end
-        params[:places].each do |place|
-            trip.hotels.build(name: place)
+        params[:hotels].each do |hotel|
+            trip.hotels.build(name: hotel)
         end
         trip.area = area  
         trip.type = type 
