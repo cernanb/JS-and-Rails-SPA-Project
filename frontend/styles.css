@@ -3,5 +3,15 @@
 }
 
 .first_col {
-    
+    background: url("https://www.fodors.com/wp-content/uploads/2019/06/09_BestBeachesinPuertoRico__PlayaSucia_Playa-Sucia_Credit_Beautiful-Destinations.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+form {
+    width: 90%;
+}
+
+* {
+    font-family: 'Rowdies', cursive;
 }

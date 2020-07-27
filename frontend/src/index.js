@@ -6,7 +6,6 @@ const getTrips = (e) => {
     const typeId = document.querySelector("#types").value 
     const areaId = document.querySelector("#areas").value 
     fetch(`${TRIPS_URL}/${areaId}/${typeId}`)
-    // fetch(TRIPS_URL)
     .then((res) => res.json())
     .then((trips) => displayTrips(trips))
 }
@@ -22,7 +21,6 @@ const displayTrips = (trips) => {
         const tripCounrty = document.createElement("p")
         tripCounrty.innerHTML = `Country: ${trip.country}`
         const tripType = document.createElement("p")
-        console.log(trip.type)
         tripType.innerHTML = `Trip type: ${trip.type.name}`
         const tripArea = document.createElement("p")
         tripArea.innerHTML = `Trip area: ${trip.area.name}`
@@ -40,12 +38,20 @@ const displayTrips = (trips) => {
             liHotels.innerHTML = hotel.name
             ulHotels.appendChild(liHotels)
         })
+
+        const deleteButton = document.createElement("button")
+        deleteButton.className = "delete-button btn btn-primary"
+        deleteButton.innerHTML = "Delete"
+        deleteButton.setAttribute("data-trip-id", trip.id)
+        deleteButton.addEventListener("click", deleteTrip)
+
         tripContainer.appendChild(tripCity)
         tripContainer.appendChild(tripCounrty)
         tripContainer.appendChild(tripArea)
         tripContainer.appendChild(tripType)
         tripContainer.appendChild(ulAttractions)
         tripContainer.appendChild(ulHotels)
+        tripContainer.appendChild(deleteButton)
         main.appendChild(tripContainer)
     })
 }  
@@ -79,5 +85,18 @@ const addTrip = (e) => {
     .then((data) => console.log(data))
 }
 
-const form = document.getElementById("main-form").addEventListener("submit", getTrips)
-const createFrom = document.getElementById("trip-form").addEventListener("submit", addTrip)
+const deleteTrip = (e) => {
+    // e.preventDefault()
+    const configObject = {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+    }
+    fetch(`${TRIPS_URL}/${e.target.dataset.tripId}`, configObject)
+    e.target.parentElement.remove()
+}
+
+document.getElementById("main-form").addEventListener("submit", getTrips)
+document.getElementById("trip-form").addEventListener("submit", addTrip)

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
@@ -35,18 +36,18 @@
                         <label for="attraction">Attractions</label><br>
                         <input type="text" name="attraction" id="attraction" class="form-control attraction"><br>
                     </div>
-                    <button id="add-attraction">Add another attraction</button><br>
+                    <button id="add-attraction" class="btn btn-primary">Add another attraction</button><br>
                     <div id="hotels">
                         <label for="hotel">Hotels</label><br>
                         <input type="text" name="hotel" id="hotel" class="form-control hotel"><br>
                     </div>
-                    <button id="add-hotel">Add another hotel</button><br>
-                    
+                    <button id="add-hotel" class="btn btn-primary">Add another hotel</button><br>
+
                     <button type="submit" class="btn btn-primary" id="create-trip">Create Trip</button>
                 </form>
             </div>
 
-            <div class="col">    
+            <div class="col second-col">    
                 <form id="main-form">
                     <label for="types">Select trip type</label><br>
                     <select name="types" id="types" class="form-control">
@@ -67,8 +68,7 @@
 
                 <div class="container main"></div>
             </div>
-
-    </div>
+        </div>
     </div>
     <script src="./src/index.js"></script>
     <script src="./src/input_fields.js"></script>

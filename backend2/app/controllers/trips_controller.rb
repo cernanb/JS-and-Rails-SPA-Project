@@ -24,4 +24,9 @@ class TripsController < ApplicationController
         trip.save 
         render json: trip.to_json(include: [:attractions, :hotels, :type, :area])
     end
+
+    def destroy
+        trip = Trip.find(params[:id])
+        trip.destroy
+    end
 end
