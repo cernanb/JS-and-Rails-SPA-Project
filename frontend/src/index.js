@@ -1,8 +1,48 @@
 const BASE_URL = "http://localhost:3000"
 const TRIPS_URL = `${BASE_URL}/trips`
 
+document.addEventListener("DOMContentLoaded", () => {
+    getTypes()
+    getAreas()
+})
+
+const getTypes = () => {
+    fetch(`${BASE_URL}/types`)
+    .then(resp => resp.json())
+    .then(types => {
+        let typesSelect = document.querySelector('#types')
+        let typeSelect = document.querySelector('#type')
+        for (const type of types) {
+            let option = `<option value=${type.id}>${type.name}</option>`
+            typeSelect.insertAdjacentHTML('beforeend', option)
+            typesSelect.insertAdjacentHTML('beforeend', option)
+        }
+    })
+}
+
+const getAreas = () => {
+    fetch(`${BASE_URL}/areas`)
+    .then(resp => resp.json())
+    .then(areas => {
+        let areasSelect = document.querySelector('#areas')
+        let areaSelect = document.querySelector('#area')
+        for (const area of areas) {
+            let option = `<option value=${area.id}>${area.name}</option>`
+            areaSelect.insertAdjacentHTML('beforeend', option)
+            areasSelect.insertAdjacentHTML('beforeend', option)
+        }
+    })
+}
+
 const getData = (e) => {
     e.preventDefault()
+    // let tripsContainer = document.getElementsByClassName("main")[0]
+    // if (tripsContainer.children.length !== 0){
+    //     for (const trip of tripsContainer.children){
+    //         return trip.remove()
+    //     }
+    // }
+    
     const typeId = document.querySelector("#types").value 
     const areaId = document.querySelector("#areas").value 
     fetch(`${TRIPS_URL}/${areaId}/${typeId}`)
@@ -64,6 +104,4 @@ const deleteTrip = (e) => {
 }
 
 document.getElementById("main-form").addEventListener("submit", getData)
-document.getElementById("trip-form").addEventListener("submit", {
-    addTrip 
-})
+document.getElementById("trip-form").addEventListener("submit", addTrip)

@@ -101,7 +101,4 @@ const deleteTrip = (e) => {
 }
 
 document.getElementById("main-form").addEventListener("submit", getTrips)
-document.getElementById("trip-form").addEventListener("submit", {
-    addTrip 
-    
-})
+document.getElementById("trip-form").addEventListener("submit", addTrip)
