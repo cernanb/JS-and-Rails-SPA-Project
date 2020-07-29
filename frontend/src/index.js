@@ -10,28 +10,26 @@ const getTypes = () => {
     fetch(`${BASE_URL}/types`)
     .then(resp => resp.json())
     .then(types => {
-        let typesSelect = document.querySelector('#types')
-        let typeSelect = document.querySelector('#type')
-        for (const type of types) {
-            let option = `<option value=${type.id}>${type.name}</option>`
-            typeSelect.insertAdjacentHTML('beforeend', option)
-            typesSelect.insertAdjacentHTML('beforeend', option)
-        }
+        types.forEach(type => new Type(type))
+        renderTypes()
     })
+}
+
+const renderTypes = () => {
+    Type.all.forEach(type => type.template())
 }
 
 const getAreas = () => {
     fetch(`${BASE_URL}/areas`)
     .then(resp => resp.json())
     .then(areas => {
-        let areasSelect = document.querySelector('#areas')
-        let areaSelect = document.querySelector('#area')
-        for (const area of areas) {
-            let option = `<option value=${area.id}>${area.name}</option>`
-            areaSelect.insertAdjacentHTML('beforeend', option)
-            areasSelect.insertAdjacentHTML('beforeend', option)
-        }
+        areas.forEach(area => new Area(area))
+        renderAreas()
     })
+}
+
+const renderAreas = () => {
+    Area.all.forEach(area => area.template())
 }
 
 const getData = (e) => {
@@ -51,6 +49,7 @@ const getData = (e) => {
 }
 
 const loadTrips = (trips) => {
+    Trip.all = []
     trips.forEach(trip => new Trip(trip))
     renderTrips()
 }

@@ -14,10 +14,8 @@ class Type {
     template() {
         let typesSelect = document.querySelector('#types')
         let typeSelect = document.querySelector('#type')
-        for (const type of types) {
-            let option = `<option value=${type.id}>${type.name}</option>`
-            typeSelect.insertAdjacentHTML('beforeend', option)
-            typesSelect.insertAdjacentHTML('beforeend', option)
-        }
+        let option = `<option value=${this.id}>${this.name}</option>`
+        typeSelect.insertAdjacentHTML('beforeend', option)
+        typesSelect.insertAdjacentHTML('beforeend', option)
     }
 }
