@@ -34,13 +34,6 @@ const renderAreas = () => {
 
 const getData = (e) => {
     e.preventDefault()
-    // let tripsContainer = document.getElementsByClassName("main")[0]
-    // if (tripsContainer.children.length !== 0){
-    //     for (const trip of tripsContainer.children){
-    //         return trip.remove()
-    //     }
-    // }
-    
     const typeId = document.querySelector("#types").value 
     const areaId = document.querySelector("#areas").value 
     fetch(`${TRIPS_URL}/${areaId}/${typeId}`)
@@ -86,11 +79,15 @@ const addTrip = (e) => {
     }
     fetch(TRIPS_URL, configObject)
     .then((res) => res.json())
-    .then((data) => console.log(data))
+    .then((data) => {
+        console.log(data)
+        clearForm()
+        document.querySelector(".alert").style.display = "block"
+        setTimeout(function(){ document.querySelector(".alert").style.display = "none"; }, 4000);
+    })
 }
 
 const deleteTrip = (e) => {
-    // e.preventDefault()
     const configObject = {
         method: "DELETE",
         headers: {
@@ -102,5 +99,22 @@ const deleteTrip = (e) => {
     e.target.parentElement.remove()
 }
 
+const clearForm = () => {
+    document.querySelector("#city").value = ""
+    document.querySelector("#country").value = ""
+    const attractionsElements = document.querySelector("#attractions")
+    attractionsElements.innerHTML = `<label for="attraction">Attractions</label><br>
+    <input type="text" name="attraction" id="attraction" class="form-control attraction"><br>`
+    const hotelsElements = document.querySelector("#hotels")
+    hotelsElements.innerHTML = `<label for="hotel">Hotels</label><br>
+    <input type="text" name="hotel" id="hotel" class="form-control hotel"><br>`
+}
+
+const displayForm = () => {
+    document.getElementById("trip-form").style.display = "block"
+    document.getElementById("new-trip").style.display = "none"
+}
+
 document.getElementById("main-form").addEventListener("submit", getData)
 document.getElementById("trip-form").addEventListener("submit", addTrip)
+document.getElementById("new-trip").addEventListener("click", displayForm)

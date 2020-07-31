@@ -18,9 +18,6 @@ class Trip {
     
     template() {
         const main = document.querySelector(".main")
-        // if (main.firstElementChild){
-        //     main.firstElementChild.remove()
-        // }
         const tripContainer = document.createElement("div")
         tripContainer.className = "trip-container"
         const tripCity = document.createElement("p")

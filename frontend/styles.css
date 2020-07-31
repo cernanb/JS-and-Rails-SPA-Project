@@ -30,3 +30,8 @@
 body {
     background-color: lightblue;
 }
+
+.alert {
+    display: none;
+    background-color: limegreen;
+}
