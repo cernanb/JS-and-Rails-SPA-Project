@@ -20,10 +20,13 @@ class Trip {
         const main = document.querySelector(".main")
         const tripContainer = document.createElement("div")
         tripContainer.className = "trip-container"
-        const tripCity = document.createElement("p")
-        tripCity.innerHTML = `City: ${this.city}` 
-        const tripCounrty = document.createElement("p")
-        tripCounrty.innerHTML = `Country: ${this.country}`
+        const tripCityAndCountry = document.createElement("p")
+        tripCityAndCountry.innerHTML = `<a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">City: ${this.city}, Country: ${this.country}</a>` 
+        // const tripCounrty = document.createElement("p")
+        // tripCounrty.innerHTML = `Country: ${this.country}`
+        const info = document.createElement("div")
+        info.className = "collapse"
+        info.id = "collapseExample"
         const tripType = document.createElement("p")
         tripType.innerHTML = `Trip type: ${this.type.name}`
         const tripArea = document.createElement("p")
@@ -50,13 +53,14 @@ class Trip {
         deleteButton.setAttribute("data-trip-id", this.id)
         deleteButton.addEventListener("click", deleteTrip)
 
-        tripContainer.appendChild(tripCity)
-        tripContainer.appendChild(tripCounrty)
-        tripContainer.appendChild(tripArea)
-        tripContainer.appendChild(tripType)
-        tripContainer.appendChild(ulAttractions)
-        tripContainer.appendChild(ulHotels)
-        tripContainer.appendChild(deleteButton)
+        tripContainer.appendChild(tripCityAndCountry)
+        // tripContainer.appendChild(tripCounrty)
+        info.appendChild(tripArea)
+        info.appendChild(tripType)
+        info.appendChild(ulAttractions)
+        info.appendChild(ulHotels)
+        info.appendChild(deleteButton)
+        tripContainer.appendChild(info)
         main.appendChild(tripContainer)
     }
 }

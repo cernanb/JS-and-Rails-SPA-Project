@@ -4,7 +4,7 @@
 
 .first-col {
     background: url("https://www.fodors.com/wp-content/uploads/2019/06/09_BestBeachesinPuertoRico__PlayaSucia_Playa-Sucia_Credit_Beautiful-Destinations.jpg");
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     background-size: auto;
     padding-top: 20px;
     padding-bottom: 40px;
@@ -12,7 +12,7 @@
 
 .second-col {
     background: url("https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-1.2.1&w=1000&q=80");
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     background-size: auto;
     padding-top: 20px;
     padding-bottom: 40px;
@@ -34,4 +34,9 @@ body {
 .alert {
     display: none;
     background-color: limegreen;
+}
+
+.error-alert {
+    display: none;
+    background-color: tomato;
 }

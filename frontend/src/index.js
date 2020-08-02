@@ -80,10 +80,16 @@ const addTrip = (e) => {
     fetch(TRIPS_URL, configObject)
     .then((res) => res.json())
     .then((data) => {
+        // debugger
         console.log(data)
         clearForm()
-        document.querySelector(".alert").style.display = "block"
-        setTimeout(function(){ document.querySelector(".alert").style.display = "none"; }, 4000);
+        if (data.status !== 500) {
+            document.querySelector(".alert").style.display = "block"
+            setTimeout(function(){ document.querySelector(".alert").style.display = "none"; }, 4000);
+        } else {
+            document.querySelector(".error-alert").style.display = "block"
+            setTimeout(function(){ document.querySelector(".error-alert").style.display = "none"; }, 4000);
+        }
     })
 }
 
@@ -117,4 +123,4 @@ const displayForm = () => {
 
 document.getElementById("main-form").addEventListener("submit", getData)
 document.getElementById("trip-form").addEventListener("submit", addTrip)
-document.getElementById("new-trip").addEventListener("click", displayForm)
+// document.getElementById("new-trip").addEventListener("click", displayForm)
