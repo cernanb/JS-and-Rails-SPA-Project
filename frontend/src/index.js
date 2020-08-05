@@ -116,11 +116,5 @@ const clearForm = () => {
     <input type="text" name="hotel" id="hotel" class="form-control hotel"><br>`
 }
 
-const displayForm = () => {
-    document.getElementById("trip-form").style.display = "block"
-    document.getElementById("new-trip").style.display = "none"
-}
-
 document.getElementById("main-form").addEventListener("submit", getData)
 document.getElementById("trip-form").addEventListener("submit", addTrip)
-// document.getElementById("new-trip").addEventListener("click", displayForm)

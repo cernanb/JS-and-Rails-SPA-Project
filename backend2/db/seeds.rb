@@ -40,9 +40,9 @@ trip2.attractions.build(name: "Electric Room Lounge")
 trip2.attractions.build(name: "Hudson Terrace Night Club")
 
 # fix hotel names!!!!
-trip2.hotels.build(name: "St Christopher's Inn Berlin Mitte")
-trip2.hotels.build(name: "Select Hotel Berlin Checkpoint Charlie")
-trip2.hotels.build(name: "Smart Stay Hotel Berlin City")
+trip2.hotels.build(name: "Pod 39 Hotel")
+trip2.hotels.build(name: "Dream Hotel Downtown")
+trip2.hotels.build(name: "Hotel Empire")
 
 trip2.area = area3 
 trip2.type = type4 
